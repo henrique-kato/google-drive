@@ -7,7 +7,6 @@ import {
   Description,
   CodeTag,
 } from "./_components/sharedstyles";
-import Cards from "./_components/cards";
 
 export default function Home() {
   return (
@@ -26,8 +25,6 @@ export default function Home() {
           Get started by editing
           <CodeTag>app/page.tsx</CodeTag>
         </Description>
-
-        <Cards />
       </Main>
     </Container>
   );

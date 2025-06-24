@@ -3,7 +3,7 @@ import { FileCard } from "@components/cards/FileCard";
 
 const FileListStyle = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, minmax(200px, 286px));
+  grid-template-columns: repeat(4, 286px);
   gap: 20px;
   height: fit-content;
 `

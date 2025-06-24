@@ -11,11 +11,13 @@ const Container = styled.div`
 `;
 
 const Main = styled.main`
-  padding: 70px 0 0 64px;
+  padding: 70px 41px 0 64px;
   display: flex;
   flex: 1;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
+  gap: 41px;
+  justify-content: space-between;
 `;
 
 export { Container, Main };

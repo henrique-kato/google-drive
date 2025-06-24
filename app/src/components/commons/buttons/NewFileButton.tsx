@@ -9,8 +9,8 @@ const NewFileButtonStyle = styled.button`
   height: 39px;
   border: none;
   cursor: pointer;
-  :hover {
-    background: #71a1f3;
+  &:hover {
+    background: #357fff;
   }
 `
 

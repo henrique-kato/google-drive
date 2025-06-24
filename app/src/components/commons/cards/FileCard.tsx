@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FaFileAlt } from "react-icons/fa";
 
 type FileCardProps = {
   title: string;
@@ -13,6 +14,11 @@ const FileCardStyle = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid #1B74FF;
+  }
 `
 
 const FileTitle = styled.h3`
@@ -28,7 +34,7 @@ function FileCard({title, date}: FileCardProps){
   return (
     <FileCardStyle>
       <FileTitle>{title}</FileTitle>
-      <FileDate>c {date}</FileDate>
+      <FileDate><FaFileAlt color="white"/> {date}</FileDate>
     </FileCardStyle>
   )
 }

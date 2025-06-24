@@ -10,8 +10,10 @@ import { FileList } from "@components/containers/FileList";
 import { FilesContainer } from "@components/containers/FilesContainer";
 import { FileContent } from "@components/containers/FileContent";
 import { useState } from "react";
+import { NoFilesFound } from "@components/containers/NoFilesFound";
 
 export default function Home() {
+  const [files, setFiles] = useState(["a"]);
   const [title, setTitle] = useState("CLIQUE AQUI - Plano de atividades");
   const [fileType, setFileType] = useState("Word");
   const [date, setDate] = useState("24 de jun. de 2025");
@@ -26,10 +28,14 @@ export default function Home() {
       </Head>
       <Header/>
       <Main>
-        <FilesContainer>
-          <SearchContainer/>
-          <FileList />
-        </FilesContainer>
+        {files.length > 0 ?
+          <FilesContainer>
+            <SearchContainer/>
+            <FileList />
+          </FilesContainer> :
+          <NoFilesFound/>
+        }
+
         <FileContent title={title} fileType={fileType} date={date} fileSize={fileSize}/>
       </Main>
     </Container>

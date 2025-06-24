@@ -1,36 +1,9 @@
-import styled from "styled-components";
-import { FileCard } from "@components/cards/FileCard";
+import styled from "styled-components"
 
-const FilesContainerStyle = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, minmax(200px, 286px));
-  gap: 20px;
-  height: fit-content;
+const FilesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
 `
-
-function FilesContainer(){
-  return (
-    <FilesContainerStyle>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-    </FilesContainerStyle>
-  )
-}
 
 export { FilesContainer }

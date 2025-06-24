@@ -6,6 +6,7 @@ import {
 } from "@styles/sharedstyles";
 import { Header } from "@components/Header";
 import { SearchContainer } from "@components/containers/SearchContainer";
+import { FileList } from "@components/containers/FileList";
 import { FilesContainer } from "@components/containers/FilesContainer";
 
 export default function Home() {
@@ -18,8 +19,10 @@ export default function Home() {
       </Head>
       <Header/>
       <Main>
-        <SearchContainer/>
-        <FilesContainer />
+        <FilesContainer>
+          <SearchContainer/>
+          <FileList />
+        </FilesContainer>
       </Main>
     </Container>
   );

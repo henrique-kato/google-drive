@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Profile } from "./Profile";
 
 const HeaderStyle = styled.div`
-  padding: 1rem;
+  padding: 10px 64px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

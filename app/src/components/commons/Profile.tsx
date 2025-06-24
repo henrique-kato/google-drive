@@ -1,10 +1,14 @@
 import styled from "styled-components";
+import { IoPerson } from "react-icons/io5";
 
 const ProfilePic = styled.div`
   border-radius: 100%;
   width: 38px;
   height: 38px;
-  background-color: white;
+  background-color: #1B74FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const ProfileStyle = styled.div`
@@ -19,7 +23,9 @@ function Profile(){
   return (
     <ProfileStyle>
       <div>Henrique Kato</div>
-      <ProfilePic/>
+      <ProfilePic>
+        <IoPerson size={24}/>
+      </ProfilePic>
     </ProfileStyle>
   )
 }

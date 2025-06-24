@@ -6,6 +6,7 @@ const NewFileButtonStyle = styled.button`
   color: white;
   border-radius: 5px;
   max-width: fit-content;
+  border: none;
 `
 
 function NewFileButton(){

@@ -9,7 +9,8 @@ const SearchBarStyle = styled.input`
   width: 632px;
   height: 50px;
   border-radius: 300px;
-  border: 1px solid #404040
+  border: 1px solid #404040;
+  color: #A0A0A0;
 `
 function SearchBar() {
   return (

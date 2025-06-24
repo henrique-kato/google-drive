@@ -5,8 +5,7 @@ import {
   Main,
 } from "@styles/sharedstyles";
 import { Header } from "@components/Header";
-import { SearchBar } from "@components/inputs/SearchBar"
-import { NewFileButton } from "@components/buttons/NewFileButton";
+import { SearchContainer } from "@components/containers/SearchContainer";
 
 export default function Home() {
   return (
@@ -18,8 +17,7 @@ export default function Home() {
       </Head>
       <Header/>
       <Main>
-        <SearchBar />
-        <NewFileButton/>
+        <SearchContainer/>
       </Main>
     </Container>
   );

@@ -1,5 +1,14 @@
 import styled from "styled-components";
 import { FileCard } from "@components/cards/FileCard";
+type FileInfo = {
+  title: string;
+  fileType: string;
+  date: string;
+  fileSize: string;
+}
+type FileListProps = {
+  files: FileInfo[]
+}
 
 const FileListStyle = styled.div`
   display: grid;
@@ -8,27 +17,10 @@ const FileListStyle = styled.div`
   height: fit-content;
 `
 
-function FileList(){
+function FileList({files}: FileListProps){
   return (
     <FileListStyle>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
-      <FileCard title="CLIQUE AQUI - Plano de atividades" date="24 de jun. de 2025"/>
+      {files.map((file, index) => (<FileCard key={index} title={file.title} date={file.date} />))}
     </FileListStyle>
   )
 }

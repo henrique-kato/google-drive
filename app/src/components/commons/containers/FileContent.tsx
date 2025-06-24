@@ -2,12 +2,15 @@ import styled from "styled-components";
 import { FaFileAlt } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { MdOutlineFileDownload } from "react-icons/md";
-
-type FileContentProps = {
+type FileInfo = {
   title: string;
   fileType: string;
   date: string;
   fileSize: string;
+}
+
+type FileContentProps = {
+  file: FileInfo
 }
 
 const FileContentStyle = styled.div`
@@ -74,12 +77,12 @@ const InfoParagraph = styled.p`
   margin: 0;
 `
 
-function FileContent({title, fileType, date, fileSize}: FileContentProps){
+function FileContent({file}: FileContentProps){
   return (
     <FileContentStyle>
       <FileTitle>
         <FaFileAlt size={29}/>
-        <h2>{title}</h2>
+        <h2>{file.title}</h2>
       </FileTitle>
       <IconContainer>
         <Icon>
@@ -92,15 +95,15 @@ function FileContent({title, fileType, date, fileSize}: FileContentProps){
       <FileInfo>
         <InfoContainer>
           <TitleParagraph>Tipo do arquivo</TitleParagraph>
-          <InfoParagraph>Arquivo {fileType}</InfoParagraph>
+          <InfoParagraph>Arquivo {file.fileType}</InfoParagraph>
         </InfoContainer>
         <InfoContainer>
           <TitleParagraph>Criado em</TitleParagraph>
-          <InfoParagraph>{date}</InfoParagraph>
+          <InfoParagraph>{file.date}</InfoParagraph>
         </InfoContainer>
         <InfoContainer>
           <TitleParagraph>Tamanho</TitleParagraph>
-          <InfoParagraph>{fileSize}</InfoParagraph>
+          <InfoParagraph>{file.fileSize}</InfoParagraph>
         </InfoContainer>
       </FileInfo>
     </FileContentStyle>

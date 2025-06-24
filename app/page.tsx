@@ -31,12 +31,9 @@ export default function Home() {
         {files.length > 0 ?
           <FilesContainer>
             <SearchContainer/>
-            <FileList />
-          </FilesContainer> :
-          <NoFilesFound/>
-        }
-
-        <FileContent title={title} fileType={fileType} date={date} fileSize={fileSize}/>
+          {files.length > 0 ? <FileList files={files}/> : <NoFilesFound/>}
+        </FilesContainer>
+        <FileContent file={file}/>
       </Main>
     </Container>
   );

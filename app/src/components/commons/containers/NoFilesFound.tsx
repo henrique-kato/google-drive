@@ -39,7 +39,7 @@ function NoFilesFound(){
       </IconNotFound>
       <div>
         <h3>Nenhum arquivo encontrado.</h3>
-        <p>Tente alterar os filtros ou fazer upload de um novo arquivo</p>
+        <p>Tente alterar os filtros ou fazer upload de um novo arquivo.</p>
       </div>
     </Container>
   )

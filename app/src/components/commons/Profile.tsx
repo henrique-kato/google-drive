@@ -4,7 +4,7 @@ const ProfilePic = styled.div`
   border-radius: 100%;
   width: 24px;
   height: 24px;
-  background-color: aliceblue;
+  background-color: white;
 `
 
 const ProfileStyle = styled.div`

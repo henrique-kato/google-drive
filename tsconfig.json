@@ -19,42 +19,44 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-       "@/*": ["./*"],
       "@dtos/*": [
-        "src/services/dtos/*"
+        "app/src/services/dtos/*"
       ],
       "@animations/*": [
-        "src/components/animations/*"
+        "app/src/components/animations/*"
       ],
       "@assets/*": [
-        "src/assets/*"
+        "app/src/assets/*"
       ],
       "@components/*": [
-        "src/components/commons/*"
+        "app/src/components/commons/*"
       ],
       "@hooks/*": [
-        "src/hooks/*"
+        "app/src/hooks/*"
       ],
       "@contexts/*": [
-        "src/contexts/*"
+        "app/src/contexts/*"
       ],
       "@pages/*": [
-        "src/components/pages/*"
+        "app/src/components/pages/*"
       ],
       "@styles/*": [
-        "src/styles/*"
+        "app/src/styles/*"
       ],
       "@services/*": [
-        "src/services/*"
+        "app/src/services/*"
       ],
       "@utils/*": [
-        "src/utils/*"
+        "app/src/utils/*"
       ],
       "@types/*": [
-        "src/services/types/*"
+        "app/src/services/types/*"
       ],
       "@globals/*": [
-        "src/globals/*"
+        "app/src/globals/*"
+      ],
+      "@lib/*": [
+        "lib/*"
       ]
     },
     "plugins": [

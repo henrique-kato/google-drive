@@ -11,11 +11,9 @@ const Container = styled.div`
 `;
 const Main = styled.main`
   padding: 5rem 0;
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `;
 
 const Title = styled.h1`

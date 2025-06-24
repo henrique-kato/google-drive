@@ -5,13 +5,13 @@ const Container = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: fit-content;
   min-height: 100vh;
   background-color: black;
 `;
 
 const Main = styled.main`
-  padding: 5rem;
+  padding: 70px 0 0 64px;
   display: flex;
   flex: 1;
   flex-direction: column;

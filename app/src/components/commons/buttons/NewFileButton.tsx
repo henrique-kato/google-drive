@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-const NewFileButtonStyle = styled.button`
+const NewFileButtonStyle = styled.label`
   background: #1B74FF;
   padding: 11px 22px;
   color: white;
   border-radius: 5px;
-  width: 130px;
+  width: fit-content;
   height: 39px;
   border: none;
   cursor: pointer;
@@ -14,9 +14,16 @@ const NewFileButtonStyle = styled.button`
   }
 `
 
+const AddFileInput = styled.input`
+  display: none;
+`
+
 function NewFileButton(){
   return (
-    <NewFileButtonStyle>Novo arquivo</NewFileButtonStyle>
+    <NewFileButtonStyle htmlFor="upload">
+      Novo arquivo
+      <AddFileInput type="file" id="upload"/>
+    </NewFileButtonStyle>
   )
 }
 

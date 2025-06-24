@@ -8,7 +8,7 @@ const HeaderStyle = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #404040;
   color: white;
 `;
 

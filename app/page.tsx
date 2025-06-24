@@ -3,8 +3,9 @@ import Head from "next/head";
 import {
   Container,
   Main,
-} from "./src/components/commons/sharedstyles";
-import { Header } from "./src/components/commons/Header";
+} from "@styles/sharedstyles";
+import { Header } from "@components/Header";
+import { SearchBar } from "@components/SearchBar"
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       </Head>
       <Header/>
       <Main>
+        <SearchBar />
       </Main>
     </Container>
   );

@@ -11,7 +11,7 @@ const Container = styled.div`
 `;
 
 const Main = styled.main`
-  padding: 70px 41px 0 64px;
+  padding: 70px 41px 40px 64px;
   display: flex;
   flex: 1;
   flex-direction: row;

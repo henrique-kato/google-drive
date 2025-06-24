@@ -16,9 +16,10 @@ const FileContentStyle = styled.div`
   border-bottom: 1px solid #404040;
   color: white;
   gap: 36px;
-  position: sticky;
   height: fit-content;
   padding-bottom: 36px;
+  position: sticky;
+  top: 230px;
 
   h2 {
     font-size: large;

@@ -5,8 +5,13 @@ const NewFileButtonStyle = styled.button`
   padding: 11px 22px;
   color: white;
   border-radius: 5px;
-  max-width: fit-content;
+  width: 130px;
+  height: 39px;
   border: none;
+  cursor: pointer;
+  :hover {
+    background: #71a1f3;
+  }
 `
 
 function NewFileButton(){

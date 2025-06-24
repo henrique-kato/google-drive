@@ -16,6 +16,7 @@ const Main = styled.main`
   flex: 1;
   flex-direction: column;
   width: 100%;
+  gap: 36px;
 `;
 
 export { Container, Main };

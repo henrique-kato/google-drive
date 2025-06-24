@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 const ProfilePic = styled.div`
   border-radius: 100%;
-  width: 24px;
-  height: 24px;
+  width: 38px;
+  height: 38px;
   background-color: white;
 `
 

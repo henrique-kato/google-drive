@@ -12,10 +12,14 @@ const HeaderStyle = styled.div`
   color: white;
 `;
 
+const Title = styled.h1`
+  font-size: medium;
+`
+
 function Header(){
   return (
     <HeaderStyle>
-      <div>SOFTABLE</div>
+      <Title>SOFTABLE</Title>
       <Profile/>
     </HeaderStyle>
   )

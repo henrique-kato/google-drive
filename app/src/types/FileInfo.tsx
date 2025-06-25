@@ -5,5 +5,5 @@ export interface FileInfo {
   uploadDateTime: string;
   size: string;
   date: string;
-  url: string;
+  blob: Blob;
 }

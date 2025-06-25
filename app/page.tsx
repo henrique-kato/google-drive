@@ -40,12 +40,13 @@ export default function Home() {
   }
 
   function openDetails(file: FileInfo){
+    setFile(null);
     axios({
       method: "get",
       url: `http://localhost:5080/file/${file.id}`
     }).then(function (response) {
       const data = response.data
-      setFile({...file, url: data})
+      setFile({...file, blob: data})
     });
   }
 

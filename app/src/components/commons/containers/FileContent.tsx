@@ -76,6 +76,17 @@ const InfoParagraph = styled.p`
 `
 
 function FileContent({file, reloadFiles}: FileContentProps){
+  function downloadFile(fileName: string, blob: Blob){
+    const downloadUrl = URL.createObjectURL(new Blob([blob]));
+
+    const linkDownload = document.createElement('a');
+    linkDownload.href = downloadUrl;
+    linkDownload.download = fileName;
+    linkDownload.click();
+
+    URL.revokeObjectURL(downloadUrl);
+  }
+
   function deleteFile(id: string){
     axios.delete(`http://localhost:5080/file/${file.id}`)
     .then(function () {
@@ -90,7 +101,7 @@ function FileContent({file, reloadFiles}: FileContentProps){
         <h2>{file.fileName}</h2>
       </FileTitle>
       <IconContainer>
-        <Icon >
+        <Icon onClick={()=>downloadFile(file.fileName, file.blob)}>
           <MdOutlineFileDownload size={22}/>
         </Icon>
         <Icon onClick={()=>deleteFile(file.id)}>

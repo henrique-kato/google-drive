@@ -61,7 +61,7 @@ export default function Home() {
           </SearchContainer>
           {files.length > 0 ? <FileList files={files} openDetails={openDetails}/> : <NoFilesFound/>}
         </FilesContainer>
-        {file && <FileContent file={file}/>}
+        {file && <FileContent file={file} reloadFiles={loadFiles}/>}
       </Main>
     </Container>
   );

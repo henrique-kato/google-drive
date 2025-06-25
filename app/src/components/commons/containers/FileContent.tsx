@@ -3,9 +3,11 @@ import { FaFileAlt } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { FileInfo } from "@types/FileInfo";
+import axios from "axios";
 
 interface FileContentProps {
   file: FileInfo
+  reloadFiles: ()=>void;
 }
 
 const FileContentStyle = styled.div`
@@ -31,7 +33,7 @@ const FileTitle = styled.div`
   gap: 16px;
 `
 
-const FileInfo = styled.div`
+const FileInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -73,7 +75,14 @@ const InfoParagraph = styled.p`
   margin: 0;
 `
 
-function FileContent({file}: FileContentProps){
+function FileContent({file, reloadFiles}: FileContentProps){
+  function deleteFile(id: string){
+    axios.delete(`http://localhost:5080/file/${file.id}`)
+    .then(function () {
+      reloadFiles();
+    });
+  }
+
   return (
     <FileContentStyle>
       <FileTitle>
@@ -81,14 +90,14 @@ function FileContent({file}: FileContentProps){
         <h2>{file.fileName}</h2>
       </FileTitle>
       <IconContainer>
-        <Icon>
+        <Icon >
           <MdOutlineFileDownload size={22}/>
         </Icon>
-        <Icon>
+        <Icon onClick={()=>deleteFile(file.id)}>
           <MdDelete size={22}/>
         </Icon>
       </IconContainer>
-      <FileInfo>
+      <FileInfoContainer>
         <InfoContainer>
           <TitleParagraph>Tipo do arquivo</TitleParagraph>
           <InfoParagraph>Arquivo {file.fileType}</InfoParagraph>
@@ -101,7 +110,7 @@ function FileContent({file}: FileContentProps){
           <TitleParagraph>Tamanho</TitleParagraph>
           <InfoParagraph>{file.size}</InfoParagraph>
         </InfoContainer>
-      </FileInfo>
+      </FileInfoContainer>
     </FileContentStyle>
   )
 }

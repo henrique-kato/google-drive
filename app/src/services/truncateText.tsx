@@ -1,3 +1,5 @@
 export function truncate(text: string){
-  return text.substring(0, 25) + "...";
+  const maxLength = 25;
+  const elipsis = text.length > maxLength ? "..." : "";
+  return text.substring(0, maxLength) + elipsis;
 }

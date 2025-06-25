@@ -12,9 +12,15 @@ const SearchBarStyle = styled.input`
   border: 1px solid #404040;
   color: #A0A0A0;
 `
-function SearchBar() {
+
+interface SearchBarProps {
+  search: string;
+  onChange: (text: string)=>void;
+}
+
+function SearchBar({search, onChange}: SearchBarProps) {
   return (
-    <SearchBarStyle type="text" placeholder="Pesquisar no seu Drive"/>
+    <SearchBarStyle type="text" placeholder="Pesquisar no seu Drive" value={search} onChange={(e)=>{onChange(e.target.value)}}/>
   )
 }
 

@@ -8,7 +8,7 @@ import { Header } from "@components/Header";
 import { SearchContainer } from "@components/containers/SearchContainer";
 import { FileList } from "@components/containers/FileList";
 import { FileContent } from "@components/containers/FileContent";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { NoFilesFound } from "@components/containers/NoFilesFound";
 import axios from "axios";
 import { FilesContainer } from "@components/containers/FilesContainer"
@@ -18,8 +18,10 @@ import { SearchBar } from "@components/inputs/SearchBar"
 import { NewFileButton } from "@components/buttons/NewFileButton";
 
 export default function Home() {
-  const [files, setFiles] = useState([]);
+  const [allFiles, setAllFiles] = useState([]);
+  const [displayedFiles, setDisplayedFiles] = useState([]);
   const [file, setFile] = useState<FileInfo|null>(null);
+  const [search, setSearch] = useState<string>("");
 
   useEffect(()=>{
     loadFiles();
@@ -31,7 +33,9 @@ export default function Home() {
       url: "http://localhost:5080/file"
     }).then(function (response) {
       const data = response.data.map((f: FileInfo) => ({...f, date: convertToLocalDateTime(f.uploadDateTime)}))
-      setFiles(data)
+      setDisplayedFiles(data);
+      setAllFiles(data);
+      setFile(null);
     });
   }
 
@@ -45,6 +49,12 @@ export default function Home() {
     });
   }
 
+  function onSearch(text: string){
+    if(text === "") setDisplayedFiles(allFiles);
+    setSearch(text);
+    setDisplayedFiles(allFiles.filter((file: FileInfo)=>(file.fileName.startsWith(text))));
+  }
+
   return (
     <Container>
       <Head>
@@ -56,10 +66,10 @@ export default function Home() {
       <Main>
         <FilesContainer>
           <SearchContainer>
-            <SearchBar />
+            <SearchBar search={search} onChange={onSearch}/>
             <NewFileButton reloadFiles={loadFiles}/>
           </SearchContainer>
-          {files.length > 0 ? <FileList files={files} openDetails={openDetails}/> : <NoFilesFound/>}
+          {displayedFiles.length > 0 ? <FileList files={displayedFiles} openDetails={openDetails}/> : <NoFilesFound/>}
         </FilesContainer>
         {file && <FileContent file={file} reloadFiles={loadFiles}/>}
       </Main>

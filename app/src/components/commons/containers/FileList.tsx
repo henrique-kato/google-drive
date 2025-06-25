@@ -1,12 +1,9 @@
 import styled from "styled-components";
 import { FileCard } from "@components/cards/FileCard";
-type FileInfo = {
-  title: string;
-  fileType: string;
-  date: string;
-  fileSize: string;
-}
-type FileListProps = {
+import { FileInfo } from "@types/FileInfo";
+
+interface FileListProps {
+  openDetails: (file: FileInfo)=>void;
   files: FileInfo[]
 }
 
@@ -17,10 +14,10 @@ const FileListStyle = styled.div`
   height: fit-content;
 `
 
-function FileList({files}: FileListProps){
+function FileList({openDetails, files}: FileListProps){
   return (
     <FileListStyle>
-      {files.map((file, index) => (<FileCard key={index} title={file.title} date={file.date} />))}
+      {files.map((file) => (<FileCard key={file.id} file={file} openDetails={openDetails}/>))}
     </FileListStyle>
   )
 }

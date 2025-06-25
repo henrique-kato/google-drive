@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { FaFileAlt } from "react-icons/fa";
+import { truncate } from "@services/truncateText";
+import { FileInfo } from "@types/FileInfo";
 
 type FileCardProps = {
-  title: string;
-  date: string;
+  file: FileInfo;
+  openDetails: (file: FileInfo)=>void;
 }
 
 const FileCardStyle = styled.div`
@@ -30,11 +32,11 @@ const FileDate = styled.span`
   color: #A0A0A0;
 `
 
-function FileCard({title, date}: FileCardProps){
+function FileCard({file, openDetails}: FileCardProps){
   return (
-    <FileCardStyle>
-      <FileTitle>{title}</FileTitle>
-      <FileDate><FaFileAlt color="white"/> {date}</FileDate>
+    <FileCardStyle onClick={()=>{openDetails(file)}}>
+      <FileTitle>{truncate(file.fileName)}</FileTitle>
+      <FileDate><FaFileAlt color="white"/> {file.date}</FileDate>
     </FileCardStyle>
   )
 }

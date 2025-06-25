@@ -12,32 +12,34 @@ import { useEffect, useState } from "react";
 import { NoFilesFound } from "@components/containers/NoFilesFound";
 import axios from "axios";
 import { FilesContainer } from "@components/containers/FilesContainer"
-
-type FileInfo = {
-  title: string;
-  fileType: string;
-  date: string;
-  fileSize: string;
-}
+import { FileInfo } from "@types/FileInfo";
+import { convertToLocalDateTime } from "@services/dateConverter";
 
 export default function Home() {
-  const f: FileInfo = {
-    title: "O",
-    fileType: "word",
-    date: "4809w",
-    fileSize: "f3213"
-  }
-  const [files, setFiles] = useState([f]);
-  const [file, setFile] = useState<FileInfo>(f);
+  const [files, setFiles] = useState([]);
+  const [file, setFile] = useState<FileInfo|null>(null);
 
-  // useEffect(()=>{
-  //   axios({
-  //     method: "get",
-  //     url: "http://localhost:5080/file"
-  //   }).then(function (response) {
-  //     setFiles(response.data)
-  //   });
-  // }, )
+  useEffect(()=>{
+    axios({
+      method: "get",
+      url: "http://localhost:5080/file"
+    }).then(function (response) {
+      console.log(response.data);
+
+      const data = response.data.map((f: FileInfo) => ({...f, date: convertToLocalDateTime(f.uploadDateTime)}))
+      setFiles(data)
+    });
+  }, [])
+
+  function openDetails(file: FileInfo){
+    axios({
+      method: "get",
+      url: `http://localhost:5080/file/${file.id}`
+    }).then(function (response) {
+      const data = response.data
+      setFile({...file, url: data})
+    });
+  }
 
   return (
     <Container>
@@ -50,9 +52,9 @@ export default function Home() {
       <Main>
         <FilesContainer>
           <SearchContainer/>
-          {files.length > 0 ? <FileList files={files}/> : <NoFilesFound/>}
+          {files.length > 0 ? <FileList files={files} openDetails={openDetails}/> : <NoFilesFound/>}
         </FilesContainer>
-        <FileContent file={file}/>
+        {file && <FileContent file={file}/>}
       </Main>
     </Container>
   );

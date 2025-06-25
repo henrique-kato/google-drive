@@ -2,14 +2,9 @@ import styled from "styled-components";
 import { FaFileAlt } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { MdOutlineFileDownload } from "react-icons/md";
-type FileInfo = {
-  title: string;
-  fileType: string;
-  date: string;
-  fileSize: string;
-}
+import { FileInfo } from "@types/FileInfo";
 
-type FileContentProps = {
+interface FileContentProps {
   file: FileInfo
 }
 
@@ -23,6 +18,7 @@ const FileContentStyle = styled.div`
   padding-bottom: 36px;
   position: sticky;
   top: 230px;
+  min-width: 380px;
 
   h2 {
     font-size: large;
@@ -82,7 +78,7 @@ function FileContent({file}: FileContentProps){
     <FileContentStyle>
       <FileTitle>
         <FaFileAlt size={29}/>
-        <h2>{file.title}</h2>
+        <h2>{file.fileName}</h2>
       </FileTitle>
       <IconContainer>
         <Icon>
@@ -103,7 +99,7 @@ function FileContent({file}: FileContentProps){
         </InfoContainer>
         <InfoContainer>
           <TitleParagraph>Tamanho</TitleParagraph>
-          <InfoParagraph>{file.fileSize}</InfoParagraph>
+          <InfoParagraph>{file.size}</InfoParagraph>
         </InfoContainer>
       </FileInfo>
     </FileContentStyle>
